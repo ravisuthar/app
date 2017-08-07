@@ -1,92 +1,102 @@
 <!doctype html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>EJB</title>
-  <base href="/">
+<meta charset="utf-8">
+<title>EJB</title>
+<base href="/">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-<script src="/thirdparty/tether/js/tether.min.js"></script> 
-<script type="text/javascript" src="/thirdparty/jquery/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="/thirdparty/bootstrap/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="/thirdparty/bootstrap/css/bootstrap.min.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="/thirdparty/tether/js/tether.min.js"></script>
+<script type="text/javascript"
+	src="/thirdparty/jquery/jquery-3.2.1.min.js"></script>
+<script type="text/javascript"
+	src="/thirdparty/bootstrap/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="/thirdparty/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="/thirdparty/font-awesome-4.7.0/css/font-awesome.min.css" />	
+	
 
 <script type="text/javascript" src="/custom/js/demo.js"></script>
 
 </head>
 <body>
 
-<div class="container">
-        <h2>Demo Record</h2>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();">Add New Demo</button><br /><br />
-        <table class="table table-bordered table-hover">
-            <thead>
-                <tr>
-                    <th>
-                        ID
-                    </th>
-                    <th>
-                        Name
-                    </th>
-                    <th>
-                        Age
-                    </th>
-                    <th>
-                        State
-                    </th>
-                    <th>
-                        Country
-                    </th>
-                    <th>
-                        Action
-                    </th>
-                </tr>
-            </thead>
-            <tbody class="tbody">
-            </tbody>
-        </table>
-    </div>
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    @*<button type="button" class="close" data-dissmiss="modal"><span aria-hidden="true">×</span></button>*@
-                    <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h4 class="modal-title" id="myModalLabel">Add Demo</h4>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="EmployeeId">ID</label>
-                            <input type="text" class="form-control" id="id" placeholder="Id" />
-                        </div>
-                        <div class="form-group">
-                            <label for="Name">Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="Name"/>
-                        </div>
-                        <div class="form-group">
-                            <label for="Age">Age</label>
-                            <input type="text" class="form-control" id="age" placeholder="Age" />
-                        </div>
-                        <div class="form-group">
-                            <label for="State">State</label>
-                            <input type="text" class="form-control" id="state" placeholder="State"/>
-                        </div>
-                        <div class="form-group">
-                            <label for="Country">Country</label>
-                            <input type="text" class="form-control" id="country" placeholder="Country"/>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="btnAdd" onclick="return Add();">Add</button>
-                    <button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="Update();">Update</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>       
-    </div>
-	
+	<div class="container">
+		<h2>Demo Record</h2>
+		<button type="button" class="btn btn-primary" data-toggle="modal"
+			data-target="#myModal" onclick="clearTextBox();"><i class="fa fa-plus"></i> Add New
+			Operation</button>
+		<br /> <br />
+		<table class="table table-bordered table-hover">
+			<thead>
+				<tr>
+					<th>Operation Name</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody class="tbody">
+			</tbody>
+		</table>
+	</div>
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="myModalLabel">Add Operation</h4>
+					<button type="button" class="close" data-dissmiss="modal">
+						<span aria-hidden="true" data-dismiss="modal"><i class="fa fa-window-close-o"></i></span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="form-group">
+							<!--  <label for="OperationName">OperationName</label> --> 
+							<input type="text" class="form-control" id="operationName"
+								placeholder="Operation Name"  autocomplete="off" autofocus="autofocus"/>
+						</div>
+
+						<div class="container">
+							<table id="myTable" class=" table order-list">
+								<!-- <thead>
+									<tr>
+										<td>Key</td>
+										<td>Value</td>
+									</tr>
+								</thead> -->
+								<tbody>
+									<tr>
+										<td class=""><input type="text" name="key"
+											class="form-control" placeholder="Key" id="key0" autocomplete="off" /></td>
+										<td class=""><input type="text" name="value"
+											class="form-control" placeholder="Value" id="value0"  autocomplete="off"/></td>
+										<td class=""><a class="deleteRow"></a></td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<td colspan="5" style="text-align: left;"><input
+											type="button" class="btn btn-lg btn-block " id="addrow"
+											value="Add Row" /></td>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" id="btnAdd"
+						onclick="return Add();">Add <i class="fa fa-floppy-o"></i> </button>
+					<button type="button" class="btn btn-primary" id="btnUpdate"
+						style="display: none;" onclick="Update();">Update <i class="fa fa-floppy-o"></i></button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close <i class="fa fa-times"></i></button>
+				</div>
+			</div>
+		</div>
+	</div>
+
 </body>
-</html>	
+</html>

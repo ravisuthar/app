@@ -1,21 +1,24 @@
 package com.amdocs.comcast.orion.service;
 
+import java.util.HashMap;
 import java.util.List;
 
-import com.amdocs.comcast.orion.input.Demo;
+import com.amdocs.comcast.orion.input.EJBCallInput;
 
 public interface IDemoService {
 
 	String hi();
 
-	List<Demo> list();
+	List<EJBCallInput> list();
 
-	boolean add(Demo demo);
+	boolean add(EJBCallInput demo);
 
-	Demo getbyId(Long id);
+	EJBCallInput getbyId(String flowName);
 
-	boolean update(Demo demo);
+	boolean update(EJBCallInput demo);
 
-	boolean delete(Long id);
+	boolean delete(String flowName);
+
+	HashMap<String, Object> execute(String flowName);
 
 }
